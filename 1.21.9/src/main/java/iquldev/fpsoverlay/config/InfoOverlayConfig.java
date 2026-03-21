@@ -46,17 +46,17 @@ public class InfoOverlayConfig extends MidnightConfig {
     @Entry(category = "c") public static int advancedDynamicInterval = 3;
 
     @Comment(category = "d", centered = true) public static Comment placeholders;
-    @Comment(category = "d", centered = true) public static Comment fpsPlaceholder;
-    @Comment(category = "d", centered = true) public static Comment coordsPlaceholder;
-    @Comment(category = "d", centered = true) public static Comment systemTimePlaceholder;
-    @Comment(category = "d", centered = true) public static Comment dayTimePlaceholder;
-    @Comment(category = "d", centered = true) public static Comment currentRamPlaceholder;
-    @Comment(category = "d", centered = true) public static Comment maxRamPlaceholder;
-    @Comment(category = "d", centered = true) public static Comment ramPercentPlaceholder;
-    @Comment(category = "d", centered = true) public static Comment worldTimePlaceholder;
-    @Comment(category = "d", centered = true) public static Comment weatherPlaceholder;
-    @Comment(category = "d", centered = true) public static Comment sessionTimePlaceholder;
-    @Comment(category = "d", centered = true) public static Comment minMaxFpsPlaceholder;
-    @Comment(category = "d", centered = true) public static Comment facingPlaceholder;
-    @Comment(category = "d", centered = true) public static Comment speedPlaceholder;
+    @Comment(category = "d") public static Comment fpsPlaceholder;
+    @Comment(category = "d") public static Comment coordsPlaceholder;
+    @Comment(category = "d") public static Comment systemTimePlaceholder;
+    @Comment(category = "d") public static Comment dayTimePlaceholder;
+    @Comment(category = "d") public static Comment currentRamPlaceholder;
+    @Comment(category = "d") public static Comment maxRamPlaceholder;
+    @Comment(category = "d") public static Comment ramPercentPlaceholder;
+    @Comment(category = "d") public static Comment worldTimePlaceholder;
+    @Comment(category = "d") public static Comment weatherPlaceholder;
+    @Comment(category = "d") public static Comment sessionTimePlaceholder;
+    @Comment(category = "d") public static Comment minMaxFpsPlaceholder;
+    @Comment(category = "d") public static Comment facingPlaceholder;
+    @Comment(category = "d") public static Comment speedPlaceholder;
 }

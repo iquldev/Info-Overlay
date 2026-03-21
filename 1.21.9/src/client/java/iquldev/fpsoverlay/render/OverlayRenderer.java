@@ -13,6 +13,16 @@ public class OverlayRenderer {
     private static final int CLASSIC_H_PADDING = 5;
     private static final int CLASSIC_V_PADDING = 3;
 
+    private static int lastScreenWidth = -1, lastScreenHeight = -1;
+    private static int lastOverlayTextWidth = -1, lastAdvancedTextWidth = -1;
+    private static InfoOverlayConfig.OverlayPosition lastPosition = null;
+    private static boolean lastIsVertical = false;
+    private static boolean lastIsClassic = false;
+    private static int lastHPadding = -1, lastVPadding = -1;
+
+    private static Position cachedOverlayPos = null;
+    private static Position cachedAdvancedPos = null;
+
     private static int getHorizontalPadding() {
         return InfoOverlayConfig.isClassicStyle ? CLASSIC_H_PADDING : MODERN_H_PADDING;
     }
@@ -55,26 +65,42 @@ public class OverlayRenderer {
         int fontHeight = client.textRenderer.fontHeight;
         int advancedTextWidth = client.textRenderer.getWidth(advancedText);
 
-        Position overlayPos = calculateOverlayPosition(overlayPosition, screenWidth, screenHeight, overlayTextWidth, fontHeight, hPadding, vPadding);
+        boolean needsRecalc = screenWidth != lastScreenWidth || screenHeight != lastScreenHeight ||
+                            overlayTextWidth != lastOverlayTextWidth || advancedTextWidth != lastAdvancedTextWidth ||
+                            overlayPosition != lastPosition || InfoOverlayConfig.isVertical != lastIsVertical ||
+                            InfoOverlayConfig.isClassicStyle != lastIsClassic || hPadding != lastHPadding || vPadding != lastVPadding;
 
-        if (isShowed) {
-            drawRoundedRect(context, overlayPos.x() - hPadding, overlayPos.y() - vPadding, 
-                           overlayPos.x() + overlayTextWidth + hPadding, overlayPos.y() + fontHeight + vPadding, 
-                           InfoOverlayConfig.overlayRounding, overlayBackgroundColor);
-            context.drawText(client.textRenderer, overlayText, overlayPos.x(), 
-                           overlayPos.y(), overlayTextColor, false);
-        }
-
-        if (isAdvancedShowed) {
-            Position advancedPos = calculateAdvancedPosition(overlayPosition, overlayPos, 
+        if (needsRecalc || cachedOverlayPos == null || cachedAdvancedPos == null) {
+            cachedOverlayPos = calculateOverlayPosition(overlayPosition, screenWidth, screenHeight, overlayTextWidth, fontHeight, hPadding, vPadding);
+            cachedAdvancedPos = calculateAdvancedPosition(overlayPosition, cachedOverlayPos, 
                                                                  advancedTextWidth, overlayTextWidth, fontHeight, 
                                                                  screenWidth, screenHeight, isShowed, hPadding, vPadding);
             
-            drawRoundedRect(context, advancedPos.x() - hPadding, advancedPos.y() - vPadding, 
-                           advancedPos.x() + advancedTextWidth + hPadding, advancedPos.y() + fontHeight + vPadding, 
+            lastScreenWidth = screenWidth;
+            lastScreenHeight = screenHeight;
+            lastOverlayTextWidth = overlayTextWidth;
+            lastAdvancedTextWidth = advancedTextWidth;
+            lastPosition = overlayPosition;
+            lastIsVertical = InfoOverlayConfig.isVertical;
+            lastIsClassic = InfoOverlayConfig.isClassicStyle;
+            lastHPadding = hPadding;
+            lastVPadding = vPadding;
+        }
+
+        if (isShowed) {
+            drawRoundedRect(context, cachedOverlayPos.x() - hPadding, cachedOverlayPos.y() - vPadding, 
+                           cachedOverlayPos.x() + overlayTextWidth + hPadding, cachedOverlayPos.y() + fontHeight + vPadding, 
+                           InfoOverlayConfig.overlayRounding, overlayBackgroundColor);
+            context.drawText(client.textRenderer, overlayText, cachedOverlayPos.x(), 
+                           cachedOverlayPos.y(), overlayTextColor, false);
+        }
+
+        if (isAdvancedShowed) {
+            drawRoundedRect(context, cachedAdvancedPos.x() - hPadding, cachedAdvancedPos.y() - vPadding, 
+                           cachedAdvancedPos.x() + advancedTextWidth + hPadding, cachedAdvancedPos.y() + fontHeight + vPadding, 
                            InfoOverlayConfig.advancedRounding, advancedBackgroundColor);
-            context.drawText(client.textRenderer, advancedText, advancedPos.x(), 
-                           advancedPos.y(), advancedTextColor, false);
+            context.drawText(client.textRenderer, advancedText, cachedAdvancedPos.x(), 
+                           cachedAdvancedPos.y(), advancedTextColor, false);
         }
     }
 
