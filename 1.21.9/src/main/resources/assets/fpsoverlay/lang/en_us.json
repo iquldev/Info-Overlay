@@ -55,5 +55,7 @@
   "fpsoverlay.midnightconfig.advancedRounding": "Rounding radius",
   "fpsoverlay.midnightconfig.colorOnThresholdComment": "§lHighlight FPS numbers below threshold",
   "fpsoverlay.midnightconfig.colorOnThreshold": "Highlight FPS numbers below threshold",
-  "fpsoverlay.midnightconfig.colorThreshold": "Threshold"
+  "fpsoverlay.midnightconfig.colorThreshold": "Threshold",
+  "fpsoverlay.preview.description": "HUD changes are applied in real-time. Look at the corners of your screen to see the preview while tweaking settings.",
+  "fpsoverlay.placeholders.description": "Available Placeholders:\n{fps} — Current FPS\n{x}, {y}, {z} — Coordinates (X, Y, Z)\n{systemTime} — System Clock (HH:MM:SS)\n{dayTime} — Time in World\n{worldTime} — World Time (HH:MM)\n{currentRam} — Used RAM (MB)\n{maxRam} — Max RAM (MB)\n{ramPercent} — RAM Usage %\n{weather} — Current Weather\n{sessionTime} — Session Duration\n{minFps}, {maxFps} — Min/Max FPS\n{facing} — Facing Direction\n{playerSpeed} — Player Speed (m/s)"
 }

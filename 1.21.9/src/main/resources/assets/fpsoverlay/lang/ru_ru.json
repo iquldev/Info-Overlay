@@ -55,5 +55,7 @@
   "fpsoverlay.midnightconfig.advancedRounding": "Радиус закругления",
   "fpsoverlay.midnightconfig.colorOnThresholdComment": "§lВыделять FPS ниже порога",
   "fpsoverlay.midnightconfig.colorOnThreshold": "Выделять FPS ниже порога",
-  "fpsoverlay.midnightconfig.colorThreshold": "Порог"
+  "fpsoverlay.midnightconfig.colorThreshold": "Порог",
+  "fpsoverlay.preview.description": "Изменения применяются мгновенно. Смотрите по углам экрана, чтобы увидеть результат настройки в реальном времени.",
+  "fpsoverlay.placeholders.description": "Доступные плейсхолдеры:\n{fps} — Текущий FPS\n{x}, {y}, {z} — Координаты (X, Y, Z)\n{systemTime} — Системное время (ЧЧ:ММ:СС)\n{dayTime} — Время в мире\n{worldTime} — Мировое время (ЧЧ:ММ)\n{currentRam} — Использование ОЗУ (МБ)\n{maxRam} — Всего ОЗУ (МБ)\n{ramPercent} — ОЗУ в процентах (%)\n{weather} — Погода\n{sessionTime} — Время сессии\n{minFps}, {maxFps} — Мин. и Макс. FPS\n{facing} — Направление взгляда\n{playerSpeed} — Скорость игрока (м/с)"
 }

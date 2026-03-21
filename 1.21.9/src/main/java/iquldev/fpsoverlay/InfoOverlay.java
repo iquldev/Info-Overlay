@@ -1,16 +1,16 @@
 package iquldev.fpsoverlay;
 
+import iquldev.fpsoverlay.config.InfoOverlayConfig;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import eu.midnightdust.lib.config.MidnightConfig;
 
 public class InfoOverlay implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("Info Overlay");
 
     @Override
     public void onInitialize() {
-        MidnightConfig.init("fpsoverlay", iquldev.fpsoverlay.config.InfoOverlayConfig.class);
+        InfoOverlayConfig.load();
         LOGGER.info("Info Overlay loaded!");
     }
 }
