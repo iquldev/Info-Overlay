@@ -5,7 +5,7 @@ public class FpsStats {
     private int maxFps = Integer.MIN_VALUE;
     private int currentFps = 0;
     private long lastUpdateTime = System.currentTimeMillis();
-    private static final int UPDATE_INTERVAL = 30000;
+    private static final int UPDATE_INTERVAL = 5000;
 
     public void update(int fps) {
         this.currentFps = fps;

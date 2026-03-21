@@ -42,3 +42,5 @@ hs_err_*.log
 replay_*.log
 *.hprof
 *.jfr
+1.21.9/crowdin.yml
+1.21.9/GEMINI.md
