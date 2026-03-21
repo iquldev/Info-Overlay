@@ -1,7 +1,7 @@
 package iquldev.fpsoverlay.text;
 
-import iquldev.fpsoverlay.FPSOverlayConfig;
-import iquldev.fpsoverlay.stats.FpsStats;
+import iquldev.fpsoverlay.config.InfoOverlayConfig;
+import iquldev.fpsoverlay.stats.OverlayStats;
 import net.minecraft.client.MinecraftClient;
 
 public class DynamicTextManager {
@@ -13,35 +13,35 @@ public class DynamicTextManager {
     public void updateDynamicText() {
         long currentTime = System.currentTimeMillis();
 
-        if (FPSOverlayConfig.overlayDynamicInterval > 0 && 
-            !FPSOverlayConfig.overlayDynamicText.isEmpty() && 
-            currentTime - lastOverlaySwitchTime >= FPSOverlayConfig.overlayDynamicInterval * 1000L) {
+        if (InfoOverlayConfig.overlayDynamicInterval > 0 && 
+            !InfoOverlayConfig.overlayDynamicText.isEmpty() && 
+            currentTime - lastOverlaySwitchTime >= InfoOverlayConfig.overlayDynamicInterval * 1000L) {
             useOverlayDynamicText = !useOverlayDynamicText;
             lastOverlaySwitchTime = currentTime;
         }
 
-        if (FPSOverlayConfig.advancedDynamicInterval > 0 && 
-            !FPSOverlayConfig.advancedDynamicText.isEmpty() &&  
-            currentTime - lastAdvancedSwitchTime >= FPSOverlayConfig.advancedDynamicInterval * 1000L) {
+        if (InfoOverlayConfig.advancedDynamicInterval > 0 && 
+            !InfoOverlayConfig.advancedDynamicText.isEmpty() &&  
+            currentTime - lastAdvancedSwitchTime >= InfoOverlayConfig.advancedDynamicInterval * 1000L) {
             useAdvancedDynamicText = !useAdvancedDynamicText;
             lastAdvancedSwitchTime = currentTime;
         }
     }
 
-    public String getOverlayText(MinecraftClient client, FpsStats fpsStats) {
-        String textToFormat = (FPSOverlayConfig.overlayDynamicInterval > 0 && useOverlayDynamicText) ?
-                              FPSOverlayConfig.overlayDynamicText :
-                              FPSOverlayConfig.overlayText;
+    public String getOverlayText(MinecraftClient client, OverlayStats stats) {
+        String textToFormat = (InfoOverlayConfig.overlayDynamicInterval > 0 && useOverlayDynamicText) ?
+                              InfoOverlayConfig.overlayDynamicText :
+                              InfoOverlayConfig.overlayText;
         
-        return TextFormatter.formatText(textToFormat, client, fpsStats);
+        return TextFormatter.format(textToFormat, client, stats);
     }
 
-    public String getAdvancedText(MinecraftClient client, FpsStats fpsStats) {
-        String textToFormat = (FPSOverlayConfig.advancedDynamicInterval > 0 && useAdvancedDynamicText) ?
-                              FPSOverlayConfig.advancedDynamicText :
-                              FPSOverlayConfig.advancedText;
+    public String getAdvancedText(MinecraftClient client, OverlayStats stats) {
+        String textToFormat = (InfoOverlayConfig.advancedDynamicInterval > 0 && useAdvancedDynamicText) ?
+                              InfoOverlayConfig.advancedDynamicText :
+                              InfoOverlayConfig.advancedText;
         
-        return TextFormatter.formatText(textToFormat, client, fpsStats);
+        return TextFormatter.format(textToFormat, client, stats);
     }
 
     public boolean isUsingOverlayDynamicText() {

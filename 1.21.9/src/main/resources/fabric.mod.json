@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "id": "fpsoverlay",
-  "version": "1.9.1",
-  "name": "Info Overlay (aka FPS Overlay)",
-  "description": "\uD83D\uDDA5\uFE0F Shows your FPS (and not only) on the screen",
+  "version": "2.0",
+  "name": "Info Overlay",
+  "description": "🖥️ Displays FPS, coordinates, time, RAM usage and more on your HUD",
   "authors": ["iquldev"],
   "contact": {
     "homepage": "https://modrinth.com/mod/fpsoverlay",
@@ -14,14 +14,14 @@
   "icon": "assets/fpsoverlay/icon.png",
   "environment": "client",
   "entrypoints": {
-    "main": ["iquldev.fpsoverlay.FPSOverlay"],
-    "client": ["iquldev.fpsoverlay.FPSOverlayClient"],
-    "modmenu": ["iquldev.fpsoverlay.FPSOverlayModMenu"]
+    "main": ["iquldev.fpsoverlay.InfoOverlay"],
+    "client": ["iquldev.fpsoverlay.InfoOverlayClient"],
+    "modmenu": ["iquldev.fpsoverlay.InfoOverlayModMenu"]
   },
   "depends": {
     "fabricloader": ">=0.15.11",
     "minecraft": ">=1.21.9",
-    "java": ">=17",
+    "java": ">=21",
     "fabric-api": "*",
     "midnightlib": "*"
   },

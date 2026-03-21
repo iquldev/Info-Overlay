@@ -7,7 +7,7 @@ public class FpsStats {
     private long lastUpdateTime = System.currentTimeMillis();
     private static final int UPDATE_INTERVAL = 30000;
 
-    public void updateFps(int fps) {
+    public void update(int fps) {
         this.currentFps = fps;
         
         if (fps < minFps) {
@@ -19,25 +19,25 @@ public class FpsStats {
 
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastUpdateTime >= UPDATE_INTERVAL) {
-            resetStats();
+            reset();
             lastUpdateTime = currentTime;
         }
     }
 
-    public void resetStats() {
+    public void reset() {
         minFps = currentFps;
         maxFps = currentFps;
     }
 
-    public int getCurrentFps() {
+    public int getCurrent() {
         return currentFps;
     }
 
-    public int getMinFps() {
+    public int getMin() {
         return minFps;
     }
 
-    public int getMaxFps() {
+    public int getMax() {
         return maxFps;
     }
 }

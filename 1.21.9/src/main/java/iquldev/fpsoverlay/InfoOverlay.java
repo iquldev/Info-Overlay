@@ -5,12 +5,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import eu.midnightdust.lib.config.MidnightConfig;
 
-public class FPSOverlay implements ModInitializer {
-    public static final Logger LOGGER = LoggerFactory.getLogger("FPS Overlay");
+public class InfoOverlay implements ModInitializer {
+    public static final Logger LOGGER = LoggerFactory.getLogger("Info Overlay");
 
     @Override
     public void onInitialize() {
-        MidnightConfig.init("fpsoverlay", FPSOverlayConfig.class);
+        MidnightConfig.init("fpsoverlay", iquldev.fpsoverlay.config.InfoOverlayConfig.class);
         LOGGER.info("Info Overlay loaded!");
     }
 }

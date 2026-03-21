@@ -16,19 +16,26 @@ import org.lwjgl.glfw.GLFW;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.render.RenderTickCounter;
 
-public class FPSOverlayClient implements ClientModInitializer {
+import iquldev.fpsoverlay.stats.SessionStats;
+import iquldev.fpsoverlay.stats.SystemStats;
+import iquldev.fpsoverlay.stats.OverlayStats;
+
+public class InfoOverlayClient implements ClientModInitializer {
     private static KeyBinding keyBinding;
-    private boolean isF1Pressed = false;
+    private boolean isHidden = false;
     
     private final FpsStats fpsStats = new FpsStats();
+    private final SystemStats systemStats = new SystemStats();
+    private final SessionStats sessionStats = new SessionStats();
+    private final OverlayStats overlayStats = new OverlayStats(fpsStats, systemStats, sessionStats);
     private final DynamicTextManager dynamicTextManager = new DynamicTextManager();
 
     @Override
     public void onInitializeClient() {
         HudElementRegistry.attachElementBefore(
             VanillaHudElements.CROSSHAIR,
-            Identifier.of("fpsoverlay", "fps_overlay"),
-            this::renderFpsOverlay
+            Identifier.of("fpsoverlay", "info_overlay"),
+            this::renderOverlay
         );
 
         keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
@@ -40,16 +47,17 @@ public class FPSOverlayClient implements ClientModInitializer {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (keyBinding.wasPressed()) {
-                isF1Pressed = !isF1Pressed;
+                isHidden = !isHidden;
             }
         });
     }
 
-    private void renderFpsOverlay(DrawContext context, RenderTickCounter tickCounter) {
+    private void renderOverlay(DrawContext context, RenderTickCounter tickCounter) {
         MinecraftClient client = MinecraftClient.getInstance();
         
+        systemStats.update();
         dynamicTextManager.updateDynamicText();
         
-        OverlayRenderer.renderOverlay(context, client, fpsStats, dynamicTextManager, isF1Pressed);
+        OverlayRenderer.render(context, client, overlayStats, dynamicTextManager, isHidden);
     }
 }
