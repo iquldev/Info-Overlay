@@ -11,7 +11,7 @@ public class OverlayRenderer {
     private static final int MODERN_H_PADDING = 8;
     private static final int MODERN_V_PADDING = 4;
     private static final int CLASSIC_H_PADDING = 5;
-    private static final int CLASSIC_V_PADDING = 3;
+    private static final int CLASSIC_V_PADDING = 4;
 
     private static int lastScreenWidth = -1, lastScreenHeight = -1;
     private static int lastOverlayTextWidth = -1, lastAdvancedTextWidth = -1;

@@ -25,6 +25,7 @@ public class InfoOverlayConfig {
     }
 
     public static boolean colorOnThreshold = false;
+
     public static int colorThreshold = 30;
 
     public static String overlayText = "{fps} FPS";
@@ -57,6 +58,7 @@ public class InfoOverlayConfig {
                 isVertical = data.isVertical;
                 overlayPosition = data.overlayPosition;
                 colorOnThreshold = data.colorOnThreshold;
+
                 colorThreshold = data.colorThreshold;
                 overlayText = data.overlayText;
                 overlayBackgroundColor = data.overlayBackgroundColor;
@@ -87,6 +89,7 @@ public class InfoOverlayConfig {
             data.isVertical = isVertical;
             data.overlayPosition = overlayPosition;
             data.colorOnThreshold = colorOnThreshold;
+
             data.colorThreshold = colorThreshold;
             data.overlayText = overlayText;
             data.overlayBackgroundColor = overlayBackgroundColor;
@@ -115,6 +118,7 @@ public class InfoOverlayConfig {
         boolean isVertical = false;
         OverlayPosition overlayPosition = OverlayPosition.TOP_LEFT;
         boolean colorOnThreshold = false;
+
         int colorThreshold = 30;
         String overlayText = "{fps} FPS";
         String overlayBackgroundColor = "#000000";
