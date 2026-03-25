@@ -35,7 +35,7 @@ public class InfoOverlayClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         HudElementRegistry.attachElementBefore(
-            VanillaHudElements.CROSSHAIR,
+            VanillaHudElements.HOTBAR,
             Identifier.of("fpsoverlay", "info_overlay"),
             this::renderOverlay
         );

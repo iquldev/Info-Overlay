@@ -46,8 +46,8 @@ public class OverlayRenderer {
     }
 
     private static int getBoxGap() {
-        if (InfoOverlayConfig.isVertical) return 4;
-        return InfoOverlayConfig.isClassicStyle ? 12 : 4;
+        if (InfoOverlayConfig.isVertical) return 2;
+        return InfoOverlayConfig.isClassicStyle ? 10 : 2;
     }
 
     public static void render(DrawContext context, MinecraftClient client, 
@@ -367,8 +367,8 @@ public class OverlayRenderer {
                     default -> overlayPos.x();
                 };
                 int y = switch (position) {
-                    case BOTTOM_LEFT, BOTTOM_RIGHT -> overlayPos.y() - advancedBlockHeight - vPadding * 2 - boxGap;
-                    default -> overlayPos.y() + overlayBlockHeight + vPadding * 2 + boxGap;
+                    case BOTTOM_LEFT, BOTTOM_RIGHT -> overlayPos.y() - advancedBlockHeight - boxGap;
+                    default -> overlayPos.y() + overlayBlockHeight + boxGap;
                 };
                 return new Position(x, y);
             } else {
@@ -376,7 +376,12 @@ public class OverlayRenderer {
                     case TOP_RIGHT, BOTTOM_RIGHT -> overlayPos.x() - advancedTextWidth - hPadding * 2 - boxGap;
                     default -> overlayPos.x() + overlayTextWidth + hPadding * 2 + boxGap;
                 };
-                return new Position(x, overlayPos.y());
+                int y = switch (position) {
+                    case TOP_LEFT, TOP_RIGHT -> overlayPos.y();
+                    case BOTTOM_LEFT, BOTTOM_RIGHT -> overlayPos.y() + overlayBlockHeight - advancedBlockHeight;
+                    default -> overlayPos.y();
+                };
+                return new Position(x, y);
             }
         } else {
             return switch (position) {

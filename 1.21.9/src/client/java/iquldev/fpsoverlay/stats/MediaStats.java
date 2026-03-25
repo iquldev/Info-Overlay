@@ -64,6 +64,8 @@ public class MediaStats {
     private static final long UPDATE_INTERVAL = 1500;
     private MediaInfo cachedInfo = null;
     private long cachedInfoTime = 0;
+    private volatile MediaInfo lastReturnedMediaInfo = new MediaInfo("", "", "", 0, 0, false);
+    private volatile long lastReturnedProgressMs = 0;
     private static final long CACHE_DURATION_MS = 100;
 
     public record MediaInfo(String artist, String title, String album, long progressMs, long durationMs, boolean isPlaying) {
@@ -111,10 +113,14 @@ public class MediaStats {
 
     private MediaInfo withInterpolatedProgress(MediaInfo raw, long nowMs) {
         if (raw.isEmpty()) {
+            lastReturnedMediaInfo = raw;
+            lastReturnedProgressMs = 0;
             return raw;
         }
+
         long elapsed = nowMs - progressSampleTimeMs;
         long p = raw.progressMs();
+
         if (raw.isPlaying()) {
             if (raw.durationMs() > 0) {
                 p = Math.min(raw.durationMs(), raw.progressMs() + Math.max(0, elapsed));
@@ -122,6 +128,18 @@ public class MediaStats {
                 p = raw.progressMs() + Math.max(0, elapsed);
             }
         }
+
+        boolean sameTrack = raw.title().equals(lastReturnedMediaInfo.title())
+                && raw.artist().equals(lastReturnedMediaInfo.artist())
+                && raw.album().equals(lastReturnedMediaInfo.album());
+
+        if (sameTrack && raw.isPlaying() && p < lastReturnedProgressMs) {
+            p = lastReturnedProgressMs;
+        }
+
+        lastReturnedMediaInfo = raw;
+        lastReturnedProgressMs = p;
+
         return new MediaInfo(raw.artist(), raw.title(), raw.album(), p, raw.durationMs(), raw.isPlaying());
     }
 
