@@ -21,6 +21,6 @@
 - Russian (ru_ru)
 - Ukrainian (uk_ua)
 - Belarusian (be_by)
-- Simplified Chinese (zh_tw)<br>
+- Simplified Chinese (zh_tw)...<br>
 
 **Help with the translation on** [Crowdin](https://crowdin.com/project/fpsoverlay)!
