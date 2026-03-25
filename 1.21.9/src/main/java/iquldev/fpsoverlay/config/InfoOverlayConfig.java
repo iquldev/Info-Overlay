@@ -29,6 +29,7 @@ public class InfoOverlayConfig {
     public static int colorThreshold = 30;
 
     public static String overlayText = "{fps} FPS";
+    public static boolean isOverlayMedia = false;
     public static String overlayBackgroundColor = "#000000";
     public static String overlayTextColor = "#ffffff";
     public static int overlayTransparency = 50;
@@ -37,12 +38,17 @@ public class InfoOverlayConfig {
     public static int overlayDynamicInterval = 3;
 
     public static String advancedText = "{minFps} / {maxFps}";
+    public static boolean isAdvancedMedia = false;
     public static String advancedBackgroundColor = "#000000";
     public static String advancedTextColor = "#ffffff";
     public static int advancedTransparency = 50;
     public static int advancedRounding = 4;
     public static String advancedDynamicText = "";
     public static int advancedDynamicInterval = 3;
+
+    public static boolean mediaWidgetCompact = false;
+    public static int mediaMaxLineChars = 36;
+    public static int mediaCompactMaxChars = 48;
 
     public static void load() {
         if (!CONFIG_FILE.exists()) {
@@ -56,24 +62,29 @@ public class InfoOverlayConfig {
                 isAdvancedShowed = data.isAdvancedShowed;
                 isClassicStyle = data.isClassicStyle;
                 isVertical = data.isVertical;
-                overlayPosition = data.overlayPosition;
+                overlayPosition = data.overlayPosition != null ? data.overlayPosition : OverlayPosition.TOP_LEFT;
                 colorOnThreshold = data.colorOnThreshold;
 
                 colorThreshold = data.colorThreshold;
-                overlayText = data.overlayText;
-                overlayBackgroundColor = data.overlayBackgroundColor;
-                overlayTextColor = data.overlayTextColor;
+                overlayText = data.overlayText != null ? data.overlayText : "{fps} FPS";
+                isOverlayMedia = data.isOverlayMedia;
+                overlayBackgroundColor = data.overlayBackgroundColor != null ? data.overlayBackgroundColor : "#000000";
+                overlayTextColor = data.overlayTextColor != null ? data.overlayTextColor : "#ffffff";
                 overlayTransparency = data.overlayTransparency;
                 overlayRounding = data.overlayRounding;
-                overlayDynamicText = data.overlayDynamicText;
+                overlayDynamicText = data.overlayDynamicText != null ? data.overlayDynamicText : "";
                 overlayDynamicInterval = data.overlayDynamicInterval;
-                advancedText = data.advancedText;
-                advancedBackgroundColor = data.advancedBackgroundColor;
-                advancedTextColor = data.advancedTextColor;
+                advancedText = data.advancedText != null ? data.advancedText : "{minFps} / {maxFps}";
+                isAdvancedMedia = data.isAdvancedMedia;
+                advancedBackgroundColor = data.advancedBackgroundColor != null ? data.advancedBackgroundColor : "#000000";
+                advancedTextColor = data.advancedTextColor != null ? data.advancedTextColor : "#ffffff";
                 advancedTransparency = data.advancedTransparency;
                 advancedRounding = data.advancedRounding;
-                advancedDynamicText = data.advancedDynamicText;
+                advancedDynamicText = data.advancedDynamicText != null ? data.advancedDynamicText : "";
                 advancedDynamicInterval = data.advancedDynamicInterval;
+                mediaWidgetCompact = data.mediaWidgetCompact;
+                mediaMaxLineChars = data.mediaMaxLineChars > 0 ? data.mediaMaxLineChars : 36;
+                mediaCompactMaxChars = data.mediaCompactMaxChars > 0 ? data.mediaCompactMaxChars : 48;
             }
         } catch (IOException e) {
             InfoOverlay.LOGGER.error("Failed to load config!", e);
@@ -92,6 +103,7 @@ public class InfoOverlayConfig {
 
             data.colorThreshold = colorThreshold;
             data.overlayText = overlayText;
+            data.isOverlayMedia = isOverlayMedia;
             data.overlayBackgroundColor = overlayBackgroundColor;
             data.overlayTextColor = overlayTextColor;
             data.overlayTransparency = overlayTransparency;
@@ -99,12 +111,16 @@ public class InfoOverlayConfig {
             data.overlayDynamicText = overlayDynamicText;
             data.overlayDynamicInterval = overlayDynamicInterval;
             data.advancedText = advancedText;
+            data.isAdvancedMedia = isAdvancedMedia;
             data.advancedBackgroundColor = advancedBackgroundColor;
             data.advancedTextColor = advancedTextColor;
             data.advancedTransparency = advancedTransparency;
             data.advancedRounding = advancedRounding;
             data.advancedDynamicText = advancedDynamicText;
             data.advancedDynamicInterval = advancedDynamicInterval;
+            data.mediaWidgetCompact = mediaWidgetCompact;
+            data.mediaMaxLineChars = mediaMaxLineChars;
+            data.mediaCompactMaxChars = mediaCompactMaxChars;
             GSON.toJson(data, writer);
         } catch (IOException e) {
             InfoOverlay.LOGGER.error("Failed to save config!", e);
@@ -121,6 +137,7 @@ public class InfoOverlayConfig {
 
         int colorThreshold = 30;
         String overlayText = "{fps} FPS";
+        boolean isOverlayMedia = false;
         String overlayBackgroundColor = "#000000";
         String overlayTextColor = "#ffffff";
         int overlayTransparency = 50;
@@ -128,11 +145,15 @@ public class InfoOverlayConfig {
         String overlayDynamicText = "";
         int overlayDynamicInterval = 3;
         String advancedText = "{minFps} / {maxFps}";
+        boolean isAdvancedMedia = false;
         String advancedBackgroundColor = "#000000";
         String advancedTextColor = "#ffffff";
         int advancedTransparency = 50;
         int advancedRounding = 4;
         String advancedDynamicText = "";
         int advancedDynamicInterval = 3;
+        boolean mediaWidgetCompact = false;
+        int mediaMaxLineChars = 36;
+        int mediaCompactMaxChars = 48;
     }
 }

@@ -7,6 +7,11 @@
   "fpsoverlay.group.display": "Отображение",
   "fpsoverlay.group.display.desc": "Настройки видимости и стиля оверлея. Изменения применяются мгновенно.",
   "fpsoverlay.group.position": "Позиция",
+  "fpsoverlay.group.media": "Медиа-виджет",
+  "fpsoverlay.group.media.desc": "Настройки медиа-виджета. Компактный режим: одна строка со временем, без полосы прогресса.",
+  "fpsoverlay.option.mediaWidgetCompact": "Компактный виджет",
+  "fpsoverlay.option.mediaMaxLineChars": "Макс. символов в строке (название / исполнитель)",
+  "fpsoverlay.option.mediaCompactMaxChars": "Макс. символов (название · исполнитель) в компактном режиме",
   "fpsoverlay.group.template": "Текст",
   "fpsoverlay.group.appearance": "Внешний вид",
   "fpsoverlay.group.dynamic": "Динамический текст",
@@ -18,6 +23,7 @@
   "fpsoverlay.option.overlayPosition": "Позиция на экране",
   "fpsoverlay.option.overlayText": "Текст виджета",
   "fpsoverlay.option.advancedText": "Текст виджета",
+  "fpsoverlay.option.isMedia": "Включить медиа-виджет",
   "fpsoverlay.option.overlayBackgroundColor": "Цвет фона",
   "fpsoverlay.option.overlayTextColor": "Цвет текста",
   "fpsoverlay.option.advancedBackgroundColor": "Цвет фона",
@@ -38,5 +44,10 @@
   "fpsoverlay.enum.OverlayPosition.BOTTOM_RIGHT": "Справа снизу",
   "fpsoverlay.placeholders.description": "Доступные переменные:\n{fps} — FPS\n{x}, {y}, {z} — Координаты\n{systemTime} — Время (ПК)\n{worldTime} — Время (Мир)\n{ramPercent} — ОЗУ (%)\n{minFps}, {maxFps} — Мин/Макс FPS\n{playerSpeed} — Скорость (м/с)",
   "fpsoverlay.preview.description": "Настройте оверлей так, как вам нравится!",
-  "fpsoverlay.keys.show": "Показать/Скрыть оверлей"
+  "fpsoverlay.keys.show": "Показать/Скрыть оверлей",
+  "fpsoverlay.media.not_playing": "Ничего не играет",
+  "fpsoverlay.media.paused": "Пауза",
+  "fpsoverlay.media.widget_name": "Медиа",
+  "fpsoverlay.media.unsupported_os": "Не поддерживается",
+  "fpsoverlay.media.unsupported_os_mac": "Виджет работает с Windows и Linux"
 }

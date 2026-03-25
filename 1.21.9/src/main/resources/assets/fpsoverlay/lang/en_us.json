@@ -7,6 +7,11 @@
   "fpsoverlay.group.display": "Display",
   "fpsoverlay.group.display.desc": "Visibility and core settings. Changes apply instantly.",
   "fpsoverlay.group.position": "Position",
+  "fpsoverlay.group.media": "Media widget",
+  "fpsoverlay.group.media.desc": "Media widget configuration. Compact mode: one line with time, no progress bar.",
+  "fpsoverlay.option.mediaWidgetCompact": "Compact media widget",
+  "fpsoverlay.option.mediaMaxLineChars": "Max characters per line (title / artist)",
+  "fpsoverlay.option.mediaCompactMaxChars": "Max characters (title · artist) in compact mode",
   "fpsoverlay.group.template": "Text",
   "fpsoverlay.group.appearance": "Appearance",
   "fpsoverlay.group.dynamic": "Dynamic Text",
@@ -18,6 +23,7 @@
   "fpsoverlay.option.overlayPosition": "Screen Position",
   "fpsoverlay.option.overlayText": "Widget Text",
   "fpsoverlay.option.advancedText": "Widget Text",
+  "fpsoverlay.option.isMedia": "Enable Media Widget",
   "fpsoverlay.option.overlayBackgroundColor": "Background Color",
   "fpsoverlay.option.overlayTextColor": "Text Color",
   "fpsoverlay.option.advancedBackgroundColor": "Background Color",
@@ -38,5 +44,10 @@
   "fpsoverlay.enum.OverlayPosition.BOTTOM_RIGHT": "Bottom Right",
   "fpsoverlay.placeholders.description": "Available placeholders:\n{fps} — FPS\n{x}, {y}, {z} — Coords\n{systemTime} — PC Time\n{worldTime} — World Time\n{ramPercent} — RAM (%)\n{minFps}, {maxFps} — Min/Max FPS\n{playerSpeed} — Player Speed (m/s)",
   "fpsoverlay.preview.description": "Customize your overlay to your liking!",
-  "fpsoverlay.keys.show": "Show/Hide Overlay"
+  "fpsoverlay.keys.show": "Show/Hide Overlay",
+  "fpsoverlay.media.not_playing": "Not playing",
+  "fpsoverlay.media.paused": "Paused",
+  "fpsoverlay.media.widget_name": "Media",
+  "fpsoverlay.media.unsupported_os": "Not supported",
+  "fpsoverlay.media.unsupported_os_mac": "Use Windows or Linux for this widget"
 }
