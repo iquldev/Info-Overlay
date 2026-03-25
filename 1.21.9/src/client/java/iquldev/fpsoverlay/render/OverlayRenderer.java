@@ -80,6 +80,8 @@ public class OverlayRenderer {
         int advancedContentWidth = measurePlaceholderContentWidth(client, advancedText, stats.media(), InfoOverlayConfig.isAdvancedMedia);
         int overlayBlockHeight = measurePlaceholderContentHeight(client, overlayText, stats.media(), fontHeight, InfoOverlayConfig.isOverlayMedia);
         int advancedBlockHeight = measurePlaceholderContentHeight(client, advancedText, stats.media(), fontHeight, InfoOverlayConfig.isAdvancedMedia);
+        int overlayTotalHeight = overlayBlockHeight + vPadding * 2;
+        int advancedTotalHeight = advancedBlockHeight + vPadding * 2;
 
         boolean needsRecalc = screenWidth != lastScreenWidth || screenHeight != lastScreenHeight ||
                             overlayContentWidth != lastOverlayTextWidth || advancedContentWidth != lastAdvancedTextWidth ||
@@ -92,9 +94,12 @@ public class OverlayRenderer {
 
         if (needsRecalc || cachedOverlayPos == null || cachedAdvancedPos == null) {
             cachedOverlayPos = calculateOverlayPosition(overlayPosition, screenWidth, screenHeight, overlayContentWidth, overlayBlockHeight, hPadding, vPadding);
-            cachedAdvancedPos = calculateAdvancedPosition(overlayPosition, cachedOverlayPos,
-                    advancedContentWidth, overlayContentWidth, overlayBlockHeight, advancedBlockHeight,
-                    screenWidth, screenHeight, isShowed, hPadding, vPadding);
+            cachedAdvancedPos = calculateAdvancedPosition(
+                    overlayPosition, cachedOverlayPos,
+                    advancedContentWidth, overlayContentWidth,
+                    overlayTotalHeight, advancedTotalHeight,
+                    screenWidth, screenHeight, isShowed, hPadding, vPadding
+            );
 
             lastScreenWidth = screenWidth;
             lastScreenHeight = screenHeight;
@@ -366,10 +371,12 @@ public class OverlayRenderer {
                     case TOP_RIGHT, BOTTOM_RIGHT -> overlayPos.x() + overlayTextWidth - advancedTextWidth;
                     default -> overlayPos.x();
                 };
+
                 int y = switch (position) {
                     case BOTTOM_LEFT, BOTTOM_RIGHT -> overlayPos.y() - advancedBlockHeight - boxGap;
                     default -> overlayPos.y() + overlayBlockHeight + boxGap;
                 };
+
                 return new Position(x, y);
             } else {
                 int x = switch (position) {
