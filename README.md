@@ -12,11 +12,12 @@
 > - Display in-game time and weather to stay isolated from society underground
 > - Show real-world time so you don’t have to go outside
 > - Display your facing direction to find your home
+> - Display playing music from Spotify, YouTube, and other apps (Windows 10+ only) [New ⭐]
 # ⚙️ Dependencies
 > - **[Fabric API](https://modrinth.com/mod/fabric-api)** ([QFAPI](https://modrinth.com/mod/qsl) for Quilt)
 > - [Mod Menu](https://modrinth.com/mod/modmenu) (optional)
 > - [Midnight Lib](https://modrinth.com/mod/midnightlib) (for <1.9.1)
-> - [YACL]([https://modrinth.com/mod/midnightlib](https://modrinth.com/mod/yacl)) (for >2.0)
+> - [YACL](https://modrinth.com/mod/yacl) (for >2.0)
 # 🌍 Languages
 
 <details>
