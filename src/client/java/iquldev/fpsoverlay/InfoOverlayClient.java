@@ -19,7 +19,6 @@ import com.mojang.blaze3d.platform.InputConstants;
 import iquldev.fpsoverlay.stats.SessionStats;
 import iquldev.fpsoverlay.stats.SystemStats;
 import iquldev.fpsoverlay.stats.OverlayStats;
-import iquldev.fpsoverlay.stats.MediaStats;
 
 public class InfoOverlayClient implements ClientModInitializer {
     private static KeyMapping keyBinding;
@@ -28,8 +27,7 @@ public class InfoOverlayClient implements ClientModInitializer {
     private final FpsStats fpsStats = new FpsStats();
     private final SystemStats systemStats = new SystemStats();
     private final SessionStats sessionStats = new SessionStats();
-    private final MediaStats mediaStats = new MediaStats();
-    private final OverlayStats overlayStats = new OverlayStats(fpsStats, systemStats, sessionStats, mediaStats);
+    private final OverlayStats overlayStats = new OverlayStats(fpsStats, systemStats, sessionStats);
     private final DynamicTextManager dynamicTextManager = new DynamicTextManager();
 
     @Override
