@@ -38,5 +38,22 @@
   "fpsoverlay.enum.OverlayPosition.BOTTOM_RIGHT": "Bottom Right",
   "fpsoverlay.placeholders.description": "Available placeholders:\n{fps} — FPS\n{x}, {y}, {z} — Coords\n{systemTime} — PC Time\n{worldTime} — World Time\n{ramPercent} — RAM (%)\n{minFps}, {maxFps} — Min/Max FPS\n{playerSpeed} — Player Speed (m/s)",
   "fpsoverlay.preview.description": "Customize your overlay to your liking!",
-  "fpsoverlay.keys.show": "Show/Hide Overlay"
+  "fpsoverlay.keys.show": "Show/Hide Overlay",
+  "fpsoverlay.group.more": "More",
+  "fpsoverlay.option.fullSettings": "Full Settings...",
+  "fpsoverlay.option.fullSettings.tooltip": "Open the full settings screen with text templates, colors, and appearance options.",
+  "fpsoverlay.option.isShowed.tooltip": "Toggle the visibility of the primary information overlay on your screen.",
+  "fpsoverlay.option.isAdvancedShowed.tooltip": "Display additional technical statistics, such as RAM usage and minimum/maximum FPS.",
+  "fpsoverlay.option.isClassicStyle.tooltip": "Switch to a minimalist, classic text style without the modern background box.",
+  "fpsoverlay.option.isVertical.tooltip": "Arrange the overlay elements vertically in a column instead of a horizontal line.",
+  "fpsoverlay.option.overlayPosition.tooltip": "Choose which corner of the screen the main overlay will be anchored to.",
+  "fpsoverlay.option.colorOnThreshold.tooltip": "Automatically change the text color to alert you when performance drops below a certain level.",
+  "fpsoverlay.option.colorThreshold.tooltip": "The target frame rate. The overlay text will turn red if your current FPS falls below this value.",
+  "fpsoverlay.option.overlayText.tooltip": "Define what data is displayed. Supports placeholders like {fps}, {x}, {y}, {z}, and {ramPercent}.",
+  "fpsoverlay.option.advancedText.tooltip": "Define data for the advanced widget. Use placeholders to customize the layout.",
+  "fpsoverlay.option.overlayBackgroundColor.tooltip": "Adjust the background color and transparency (RGBA) of the main widget container.",
+  "fpsoverlay.option.overlayTextColor.tooltip": "Set the default text color for the main overlay elements.",
+  "fpsoverlay.option.overlayRounding.tooltip": "Set the corner smoothness (border radius) for the widget's background plate.",
+  "fpsoverlay.option.overlayDynamicText.tooltip": "Enable alternating text that switches periodically to show different stats.",
+  "fpsoverlay.option.overlayDynamicInterval.tooltip": "The delay in seconds before the overlay cycles to the secondary dynamic text template."
 }

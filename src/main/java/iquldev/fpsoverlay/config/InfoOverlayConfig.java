@@ -11,7 +11,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class InfoOverlayConfig {
-    private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "fpsoverlay.json");
+    private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(),
+            "fpsoverlay.json");
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public static boolean isShowed = true;
@@ -68,7 +69,8 @@ public class InfoOverlayConfig {
                 overlayDynamicText = data.overlayDynamicText != null ? data.overlayDynamicText : "";
                 overlayDynamicInterval = data.overlayDynamicInterval;
                 advancedText = data.advancedText != null ? data.advancedText : "{minFps} / {maxFps}";
-                advancedBackgroundColor = data.advancedBackgroundColor != null ? data.advancedBackgroundColor : "#000000";
+                advancedBackgroundColor = data.advancedBackgroundColor != null ? data.advancedBackgroundColor
+                        : "#000000";
                 advancedTextColor = data.advancedTextColor != null ? data.advancedTextColor : "#ffffff";
                 advancedTransparency = data.advancedTransparency;
                 advancedRounding = data.advancedRounding;

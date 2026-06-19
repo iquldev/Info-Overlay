@@ -4,7 +4,9 @@
   "version": "2.0",
   "name": "Info Overlay",
   "description": "🖥️ Displays FPS, coordinates, time, RAM usage and more on your HUD",
-  "authors": ["iquldev"],
+  "authors": [
+    "iquldev"
+  ],
   "contact": {
     "homepage": "https://modrinth.com/mod/fpsoverlay",
     "sources": "https://github.com/iquldev/fpsoverlay",
@@ -14,18 +16,28 @@
   "icon": "assets/fpsoverlay/icon.png",
   "environment": "client",
   "entrypoints": {
-    "main": ["iquldev.fpsoverlay.InfoOverlay"],
-    "client": ["iquldev.fpsoverlay.InfoOverlayClient"],
-    "modmenu": ["iquldev.fpsoverlay.InfoOverlayModMenu"]
+    "main": [
+      "iquldev.fpsoverlay.InfoOverlay"
+    ],
+    "client": [
+      "iquldev.fpsoverlay.InfoOverlayClient"
+    ],
+    "modmenu": [
+      "iquldev.fpsoverlay.InfoOverlayModMenu"
+    ],
+    "sodium:config_api_user": [
+      "iquldev.fpsoverlay.config.SodiumConfigEntryPoint"
+    ]
   },
   "depends": {
-    "fabricloader": ">=0.18.4",
-    "minecraft": ">=26.1",
+    "fabricloader": ">=0.19.3",
+    "minecraft": ">=26.2",
     "java": ">=25",
     "fabric-api": "*",
     "yet_another_config_lib_v3": "*"
   },
   "suggests": {
-    "modmenu": "*"
+    "modmenu": "*",
+    "sodium": "*"
   }
 }

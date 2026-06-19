@@ -32,6 +32,10 @@ repositories {
 	maven {
 		url = "https://maven.isxander.dev/releases"
 	}
+	maven {
+		name = "CaffeineMC"
+		url = "https://maven.caffeinemc.net/releases"
+	}
 }
 
 loom {
@@ -55,6 +59,8 @@ dependencies {
 	implementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 
 	implementation("dev.isxander:yet-another-config-lib:${project.yacl_version}")
+
+	compileOnly("net.caffeinemc:sodium-fabric-api:${project.sodium_api_version}")
 }
 
 processResources {

@@ -38,5 +38,15 @@
   "fpsoverlay.enum.OverlayPosition.BOTTOM_RIGHT": "Справа снизу",
   "fpsoverlay.placeholders.description": "Доступные переменные:\n{fps} — FPS\n{x}, {y}, {z} — Координаты\n{systemTime} — Время (ПК)\n{worldTime} — Время (Мир)\n{ramPercent} — ОЗУ (%)\n{minFps}, {maxFps} — Мин/Макс FPS\n{playerSpeed} — Скорость (м/с)",
   "fpsoverlay.preview.description": "Настройте оверлей так, как вам нравится!",
-  "fpsoverlay.keys.show": "Показать/Скрыть оверлей"
+  "fpsoverlay.keys.show": "Показать/Скрыть оверлей",
+  "fpsoverlay.group.more": "Дополнительно",
+  "fpsoverlay.option.fullSettings": "Полные настройки...",
+  "fpsoverlay.option.fullSettings.tooltip": "Открыть полный экран настроек: шаблоны текста, цвета и внешний вид.",
+  "fpsoverlay.option.isShowed.tooltip": "Включает или выключает отображение основного оверлея на экране.",
+  "fpsoverlay.option.isAdvancedShowed.tooltip": "Показывает дополнительную техническую статистику, такую как использование RAM и мин/макс FPS.",
+  "fpsoverlay.option.isClassicStyle.tooltip": "Переключает оверлей на минималистичный классический стиль без современной фоновой плашки.",
+  "fpsoverlay.option.isVertical.tooltip": "Располагает элементы оверлея вертикально в столбик вместо стандартной горизонтальной строки.",
+  "fpsoverlay.option.overlayPosition.tooltip": "Позволяет выбрать, в каком углу экрана будет закреплен основной оверлей.",
+  "fpsoverlay.option.colorOnThreshold.tooltip": "Включает динамическое изменение цвета текста при падении производительности.",
+  "fpsoverlay.option.colorThreshold.tooltip": "Целевой фреймрейт. Текст оверлея станет красным, если текущий FPS упадет ниже этого значения."
 }
