@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "iquldev.fpsoverlay.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "TitleScreenMixin"
+  ],
+  "mixinextras": {
+    "minVersion": "0.5.4"
+  },
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
